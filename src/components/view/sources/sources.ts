@@ -1,13 +1,8 @@
-
 import './sources.css';
-
-interface Source {
-  id: string;
-  name: string;
-}
+import type { NewsSource } from '../../../types';
 
 class Sources {
-  public draw(data: Source[]): void {
+  public draw(data: NewsSource[]): void {
     const fragment = document.createDocumentFragment();
     const sourceItemTemp = document.querySelector<HTMLTemplateElement>('#sourceItemTemp');
     const sourcesContainer = document.querySelector<HTMLElement>('.sources');

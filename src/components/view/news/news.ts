@@ -1,19 +1,5 @@
-
 import './news.css';
-
-interface NewsSource {
-  name: string;
-}
-
-interface NewsArticle {
-  author: string | null;
-  source: NewsSource;
-  urlToImage: string | null;
-  publishedAt: string;
-  title: string;
-  description: string | null;
-  url: string;
-}
+import type { NewsArticle } from '../../../types';
 
 class News {
   public draw(data: NewsArticle[]): void {
