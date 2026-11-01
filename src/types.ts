@@ -9,20 +9,26 @@ export interface NewsSource {
   name: string;
 }
 
-export interface NewsArticle {
-  author: string | null;
+interface NewsArticleRequiredFields {
   source: Pick<NewsSource, 'name'>;
-  urlToImage: string | null;
   publishedAt: string;
   title: string;
-  description: string | null;
   url: string;
 }
+
+interface NewsArticleOptionalFields {
+  author: string | null;
+  urlToImage: string | null;
+  description: string | null;
+}
+
+export type NewsArticle = NewsArticleRequiredFields &
+  Partial<NewsArticleOptionalFields>;
 
 export interface NewsResponse {
   articles: NewsArticle[];
 }
 
 export interface SourcesResponse {
-  sources: NewsSource[];
+  sources: ReadonlyArray<Readonly<NewsSource>>;
 }
