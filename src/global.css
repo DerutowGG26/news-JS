@@ -13,23 +13,29 @@ header h1 {
     font-weight: 800;
 }
 
-footer {
-    height: 100px;
+.footer {
+    min-height: 100px;
+    padding: 20px 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
-footer .copyright {
+
+.footer__author,
+.footer__year {
+    color: #fff;
     font-size: 14px;
-    color: #333;
-    text-align: center;
+    text-decoration: none;
 }
-footer .copyright a {
-    color: #444;
+
+.footer__author:hover {
+    color: #70d6ff;
 }
-footer .copyright a:hover {
-    color: #555;
-}
-footer .copyright:before {
-    content: '©';
+
+.footer__school img {
+    display: block;
+    width: 80px;
+    height: auto;
 }
