@@ -1,26 +1,48 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+}
+
 body {
+    width: 100%;
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 1920px;
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
 }
 
 header {
-    padding: 10px 30px;
+    padding: 10px clamp(12px, 2vw, 30px);
 }
 
 header h1 {
-    font-size: 40px;
+    margin: 0.67em 0;
+    font-size: clamp(28px, 2.1vw, 40px);
+    line-height: 1.2;
     font-weight: 800;
+}
+
+main {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .footer {
     min-height: 100px;
-    padding: 20px 30px;
+    padding: 20px clamp(16px, 3vw, 30px);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: clamp(16px, 3vw, 30px);
 }
 
 .footer__author,
@@ -37,5 +59,21 @@ header h1 {
 .footer__school img {
     display: block;
     width: 80px;
+    max-width: 100%;
     height: auto;
+}
+
+@media (max-width: 480px) {
+    main {
+        width: calc(100% - 24px);
+    }
+
+    .footer {
+        gap: 16px;
+        padding: 20px 12px;
+    }
+
+    .footer__school img {
+        width: 70px;
+    }
 }
