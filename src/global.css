@@ -1,35 +1,100 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 320px;
+}
+
 body {
-    color: #fff;
-    background: #17181c;
-    font-family: sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 1920px;
+    color: #f1f5f9;
+    background: #10141d;
+    background-image: radial-gradient(
+        ellipse at 50% 0%,
+        rgba(59, 130, 246, 0.09),
+        transparent 55%
+    );
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 header {
-    padding: 10px 30px;
+    padding: 10px clamp(12px, 2vw, 30px);
 }
 
 header h1 {
-    font-size: 40px;
+    margin: 0.67em 0;
+    font-size: clamp(28px, 2.1vw, 40px);
+    line-height: 1.2;
     font-weight: 800;
+    color: #f8fafc;
+    text-shadow: 0 3px 18px rgba(59, 130, 246, 0.16);
 }
 
-footer {
-    height: 100px;
+main {
+    width: calc(100% - 32px);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer {
+    min-height: 100px;
+    padding: 20px clamp(16px, 3vw, 30px);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(16px, 3vw, 30px);
+    background: rgba(11, 17, 30, 0.65);
+    box-shadow: 0 1px 0 rgba(148, 163, 184, 0.12) inset;
 }
-footer .copyright {
+
+.footer__author,
+.footer__year {
+    color: #94a3b8;
     font-size: 14px;
-    color: #333;
-    text-align: center;
+    text-decoration: none;
+    transition: color 0.25s ease;
 }
-footer .copyright a {
-    color: #444;
+
+.footer__author:hover {
+    color: #60a5fa;
 }
-footer .copyright a:hover {
-    color: #555;
+
+.footer__school img {
+    display: block;
+    width: 80px;
+    max-width: 100%;
+    height: auto;
+    opacity: 0.85;
+    transition: opacity 0.25s ease;
 }
-footer .copyright:before {
-    content: '©';
+
+.footer__school:hover img {
+    opacity: 1;
+}
+
+::selection {
+    color: #fff;
+    background: #2563eb;
+}
+
+@media (max-width: 480px) {
+    main {
+        width: calc(100% - 24px);
+    }
+
+    .footer {
+        gap: 16px;
+        padding: 20px 12px;
+    }
+
+    .footer__school img {
+        width: 70px;
+    }
 }

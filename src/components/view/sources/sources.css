@@ -2,33 +2,55 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    height: 120px;
-    overflow: auto;
+    min-height: 120px;
+    height: auto;
+    padding: 8px 0;
+    overflow-x: auto;
+    overflow-y: hidden;
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #475569 #171d29;
 }
 
 .source__item {
-    background: none;
-    border: 2px solid #30c5ff;
+    flex: 0 0 auto;
+    max-width: calc(100vw - 48px);
+    background: linear-gradient(145deg, #1c2636, #171e2b);
+    border: 2px solid #34445c;
+    border-left-color: #3b82f6;
+    border-radius: 10px;
     font: inherit;
     line-height: 1;
     margin: 0.5em;
     padding: 1em 2em;
-    color: #70d6ff;
-    transition: 0.25s;
+    color: #dbeafe;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.16);
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
     cursor: pointer;
 }
 
 .source__item:hover,
 .source__item:focus {
-    border-color: #3fcc59;
-    color: #69db7e;
-    box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+    background: linear-gradient(145deg, #263954, #1d2c42);
+    border-color: #60a5fa;
+    color: #ffffff;
+    box-shadow: 0 7px 20px rgba(37, 99, 235, 0.2);
     transform: translateY(-0.25em);
 }
 
+.source__item:focus-visible {
+    outline: 2px solid #93c5fd;
+    outline-offset: 3px;
+}
+
 .source__item-name {
-    font-weight: 400;
+    font-weight: 500;
     white-space: nowrap;
 }
